@@ -32,6 +32,10 @@ class ObserverHandler(RequestHandler):
     def get(self):
         self.write("Observer")
 
+    def post(self):
+        self.set_header("Content-Type", "text/plain")
+        self.write("You wrote " + self.get_body_argument("message"))
+
     
 def main():
     tornado.options.parse_command_line()
