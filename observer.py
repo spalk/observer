@@ -6,6 +6,7 @@ import tornado.httpserver
 import tornado.ioloop
 import tornado.options
 import tornado.web
+import tornado.escape
 
 from tornado.web import RequestHandler
 from tornado.options import define, options
@@ -34,7 +35,9 @@ class ObserverHandler(RequestHandler):
 
     def post(self):
         self.set_header("Content-Type", "text/plain")
-        self.write("You wrote " + self.get_body_argument("message"))
+        args = str(self.request.arguments)
+        self.write("You wrote " + args)
+        #self.write("You wrote " + self.get_body_argument("message"))
 
     
 def main():
