@@ -27,7 +27,8 @@ class Application(tornado.web.Application):
     
 class RootHandler(RequestHandler):
     def get(self):  
-        self.write("Aloha!")
+        #self.write("Aloha!")
+        self.render('start.html')
 
 class ObserverHandler(RequestHandler):
     def get(self):
